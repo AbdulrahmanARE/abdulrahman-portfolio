@@ -1,0 +1,832 @@
+/* =========================
+   ROOT
+========================= */
+
+:root {
+    --ink: #10182d;
+    --blue: #2864f0;
+    --cyan: #273536;
+    --pale: #eef4ff;
+    --line: #dce5f3;
+    --muted: #64728b;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Manrope, Arial, sans-serif;
+    color: var(--ink);
+    line-height: 1.65;
+    background: #fcfdff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   GLOBAL
+========================= */
+
+.c {
+    width: min(1120px, calc(100% - 40px));
+    margin: auto;
+}
+
+.mono {
+    font: 500 0.7rem "DM Mono";
+    letter-spacing: 0.08em;
+    color: var(--blue);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background: #0d1427;
+    color: #fff;
+    overflow: hidden;
+}
+
+.nav {
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    font-weight: 800;
+}
+
+.brand b {
+    color: var(--cyan);
+}
+
+.nav div {
+    display: flex;
+    gap: 24px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #b8c6dc;
+}
+
+.hero-grid {
+    min-height: 575px;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero h1 {
+    font-size: clamp(2.7rem, 5.5vw, 5.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.07em;
+    margin: 15px 0;
+}
+
+.hero h1 em {
+    font-style: normal;
+    color: #35c8f1;
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(53, 200, 241, 0.4);
+}
+
+.intro {
+    color: #bdc9de;
+    font-size: 1rem;
+}
+
+.chips,
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 24px 0;
+}
+
+.chips span,
+.tags span {
+    font: 500 0.68rem "DM Mono";
+    border: 1px solid #405173;
+    border-radius: 99px;
+    padding: 6px 9px;
+}
+
+.chips .flutter {
+    background: #35c8f1;
+    color: #071a38;
+    border-color: #35c8f1;
+    font-weight: 800;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--blue);
+    padding: 12px 17px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+
+/* =========================
+   HERO ARTWORK
+========================= */
+
+.art {
+    height: 430px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #40516e;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #172747, #0f172b);
+}
+
+.code {
+    position: absolute;
+    left: 28px;
+    top: 30px;
+    color: #9cbbff;
+    font: 400 0.75rem/2 "DM Mono";
+}
+
+.code i {
+    color: #50e8d9;
+}
+
+.orb {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #506fae;
+    border-radius: 50%;
+    right: -80px;
+    bottom: -115px;
+}
+
+.avatar {
+    position: absolute;
+    right: 70px;
+    bottom: 0;
+    width: 280px;
+    height: 370px;
+    background: #5580f4;
+    border-radius: 100px 100px 20px 20px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.avatar::before {
+    content: "AR";
+    display: grid;
+    place-items: center;
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    top: 39px;
+    right: 30px;
+    border-radius: 50%;
+    background: #f2c4a8;
+    color: #162145;
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.avatar::after {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 53px;
+    top: 28px;
+    right: 22px;
+    background: #161d32;
+    border-radius: 90px 90px 20px 20px;
+}
+
+.profile-full {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 2px solid #40516e;
+    background: linear-gradient(135deg, #2864f0, #35c8f1);
+    box-shadow: 0 20px 60px rgba(40, 100, 240, 0.2),
+                0 0 40px rgba(53, 200, 241, 0.1);
+    display: block;
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+section {
+    padding: 112px 0;
+}
+
+.head {
+    max-width: 700px;
+    margin-bottom: 44px;
+}
+
+.head h2 {
+    font-size: clamp(2.1rem, 3.7vw, 3.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.06em;
+    margin: 8px 0;
+}
+
+.head p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about p {
+    font-size: 1.02rem;
+    color: #4e5d77;
+}
+
+.setup {
+    min-height: 335px;
+    position: relative;
+    border-radius: 18px;
+    background: var(--pale);
+    overflow: hidden;
+}
+
+.laptop {
+    position: absolute;
+    width: 245px;
+    height: 145px;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+    background: white;
+    border: 9px solid #273959;
+    border-bottom-width: 15px;
+    border-radius: 10px;
+}
+
+.laptop::after {
+    content: "<> Flutter App";
+    position: absolute;
+    inset: 27px;
+    color: var(--blue);
+    font: 0.75rem "DM Mono";
+}
+
+.setup::before {
+    content: "✦";
+    font-size: 2rem;
+    color: var(--blue);
+    position: absolute;
+    left: 32px;
+    top: 25px;
+}
+
+.setup::after {
+    content: "🌱";
+    font-size: 3rem;
+    position: absolute;
+    right: 31px;
+    top: 21px;
+}
+
+.about-asset-note {
+    position: absolute;
+    bottom: 17px;
+    right: 20px;
+    color: var(--blue);
+    font: 0.65rem "DM Mono";
+}
+
+
+/* =========================
+   WHY ME
+========================= */
+
+.grid5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 21px;
+    min-height: 220px;
+}
+
+.card:nth-child(even) {
+    background: #f2f6ff;
+}
+
+.icon {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    background: #dfe9ff;
+    border-radius: 10px;
+    color: var(--blue);
+    font-weight: 800;
+    margin-bottom: 21px;
+}
+
+.num {
+    font: 0.65rem "DM Mono";
+    color: var(--blue);
+}
+
+.card h3 {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin: 6px 0;
+}
+
+.card p,
+.service p,
+.project p {
+    font-size: 0.73rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+
+/* =========================
+   EDUCATION
+========================= */
+
+.edu {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 35px;
+    background: #101a32;
+    color: #fff;
+    padding: 52px;
+    border-radius: 20px;
+}
+
+.cap {
+    display: grid;
+    place-items: center;
+    min-height: 200px;
+    background: #1a2a50;
+    border-radius: 15px;
+    font-size: 4rem;
+}
+
+.edu h2 {
+    margin: 5px 0;
+    font-size: 1.5rem;
+}
+
+.edu p {
+    color: #c2cee2;
+}
+
+.education-label {
+    color: #91b0ff;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.meta span {
+    padding: 7px 9px;
+    border: 1px solid #405277;
+    border-radius: 6px;
+    background: #23355d;
+    font: 0.66rem "DM Mono";
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills,
+.services,
+.projects {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 13px;
+}
+
+.box {
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 23px;
+    background: #fff;
+    min-height: 150px;
+}
+
+.box h3 {
+    font-size: 0.85rem;
+    margin: 0 0 12px;
+}
+
+.flutter-box {
+    background: linear-gradient(145deg, #e7faff, #edf2ff);
+    border-color: #8ddff3;
+}
+
+.skill-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill-logo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 9px;
+    border-radius: 7px;
+    background: #fff;
+    border: 1px solid #dce5f3;
+    font: 500 0.67rem "DM Mono";
+    color: #43516a;
+}
+
+.skill-logo img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.tags {
+    margin: 0;
+}
+
+.tags span {
+    background: #f3f6fb;
+    border: none;
+    color: #516079;
+    border-radius: 5px;
+}
+
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.exp {
+    padding-left: 28px;
+    border-left: 2px solid var(--blue);
+    position: relative;
+}
+
+.exp::before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--cyan);
+    outline: 2px solid var(--blue);
+    left: -8px;
+    top: 4px;
+}
+
+.depi-logo {
+    display: block;
+    width: 118px;
+    height: 118px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 10px;
+    padding: 6px;
+    margin-bottom: 13px;
+}
+
+.exp h3 {
+    margin: 9px 0 0;
+}
+
+.date {
+    font: 0.68rem "DM Mono";
+    color: var(--blue);
+}
+
+.exp li {
+    font-size: 0.83rem;
+    color: var(--muted);
+}
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.service .icon {
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.project {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    min-height: 480px;
+}
+
+.screen {
+    height: 360px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e5edff, #b9cffd);
+    font: 0.68rem "DM Mono";
+    color: #24447f;
+}
+
+.project:nth-child(2) .screen {
+    background: linear-gradient(135deg, #ddf4f2, #b9dfd9);
+}
+
+.project:nth-child(3) .screen {
+    background: linear-gradient(135deg, #fff0dc, #ffd3a4);
+}
+
+.project:nth-child(4) .screen {
+    background: linear-gradient(135deg, #eee7ff, #d7c5ff);
+}
+
+.project-shot {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(16,24,45,0.12);
+    background: rgba(255,255,255,0.5);
+}
+
+.pi {
+    padding: 16px;
+}
+
+.pi h3 {
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.stack {
+    font: 0.63rem "DM Mono";
+    color: var(--blue);
+    margin: 6px 0;
+}
+
+.git {
+    display: inline-block;
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+.project.add-project {
+    border: 2px dashed #8aa9f7;
+    background: #f5f8ff;
+}
+
+.add-project .screen {
+    background: #ebf2ff;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--blue);
+}
+
+.editable {
+    outline: none;
+    border-radius: 4px;
+}
+
+.editable:focus {
+    background: #e5efff;
+    padding: 2px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    background: linear-gradient(135deg, #2864f0, #173c9c);
+    color: #fff;
+    border-radius: 20px;
+    padding: 54px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 25px;
+}
+
+.contact h2 {
+    font-size: clamp(2rem, 3.4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.06em;
+    margin: 8px 0 18px;
+}
+
+.contact p {
+    color: #dbe5fd;
+    font-size: 0.82rem;
+    margin: 7px 0;
+}
+
+.contact-label {
+    color: #c6d7ff;
+}
+
+.qrs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.qr {
+    color: var(--ink);
+    background: #fff;
+    border-radius: 9px;
+    padding: 10px;
+    text-align: center;
+    font: 0.6rem "DM Mono";
+}
+
+.qr img {
+    display: block;
+    width: 103px;
+    height: 103px;
+    margin-bottom: 4px;
+}
+
+
+/* =========================
+   THANK YOU
+========================= */
+
+.thanks {
+    text-align: center;
+    padding: 110px 0;
+    background:
+        radial-gradient(circle at 10% 70%,
+            #e0edff,
+            transparent 26%),
+        radial-gradient(circle at 88% 15%,
+            #dffafa,
+            transparent 25%);
+}
+
+.thanks h2 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    letter-spacing: -0.08em;
+    line-height: 1;
+    margin: 10px;
+}
+
+.thanks p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid var(--line);
+    padding: 22px 0;
+    color: var(--muted);
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .hero-grid,
+    .about,
+    .edu,
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+    .grid5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills,
+    .services,
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .c {
+        width: min(100% - 28px, 1120px);
+    }
+
+    .nav div {
+        display: none;
+    }
+
+    .hero-grid {
+        padding: 35px 0;
+        min-height: unset;
+    }
+
+    .art {
+        height: 285px;
+    }
+
+    .avatar {
+        right: 35px;
+        transform: scale(1.05);
+        transform-origin: bottom right;
+    }
+
+    .grid5,
+    .skills,
+    .services,
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .edu,
+    .contact {
+        padding: 27px;
+    }
+
+    .cap {
+        min-height: 110px;
+    }
+
+    .qrs {
+        justify-content: space-between;
+    }
+
+    footer {
+        display: block;
+    }
+
+    section {
+        padding: 76px 0;
+    }
+}
