@@ -37,16 +37,17 @@ p { line-height: 1.7; color: #d0d0d0; }
     transition: 0.3s;
 }
 
-.navbar-brand:hover img {
-    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5));
-    transform: scale(1.05);
-    transition: 0.3s;
+.nav-logo { height: 60px; width: auto; transition: 0.3s; }
+.footer-logo-img { height: 80px; width: auto; transition: 0.3s; }
+
+@media (min-width: 992px) {
+    .nav-logo { height: 80px; }
+    .footer-logo-img { height: 100px; }
 }
 
-.footer-logo:hover img {
-    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
+.navbar-brand:hover .nav-logo {
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5));
     transform: scale(1.05);
-    transition: 0.3s;
 }
 
 .nav-center-bar {
@@ -440,7 +441,9 @@ p { line-height: 1.7; color: #d0d0d0; }
 
 /* === Responsive === */
 @media (max-width: 991px) {
-    .section-padding { padding: 60px 20px; }
+    .section-padding { padding: clamp(3rem, 7vh, 5rem) 0; }
+    .container { padding-left: 20px !important; padding-right: 20px !important; }
+
     .navbar-collapse {
         background: var(--bg-color);
         padding: 20px;
@@ -450,31 +453,75 @@ p { line-height: 1.7; color: #d0d0d0; }
         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
     .nav-center-bar { flex-direction: column; background: transparent; border: none; width: 100%; border-radius: 0; padding: 0; }
-    .navbar .nav-link { margin-bottom: 10px; width: 100%; text-align: center; white-space: normal; }
+    .navbar .nav-link { margin-bottom: 5px; width: 100%; text-align: center; white-space: normal; }
     .hero {
         text-align: center;
-        padding-top: 140px;
-        padding-bottom: 60px;
+        padding-top: 120px;
+        padding-bottom: 40px;
         min-height: auto;
     }
-    .hero-img-container { margin-bottom: 40px; }
-    .hero-name { font-size: 2.8rem; }
-    .hero-role { font-size: 1.6rem; }
-    .blob-bg { width: 280px; height: 280px; }
-    .profile-img { width: 240px; height: 240px; }
+    .hero-img-container { margin-bottom: 30px; order: -1; }
+    .hero-name { font-size: 2.5rem; }
+    .hero-role { font-size: 1.4rem; }
+    .hero-desc { margin-left: auto; margin-right: auto; max-width: 100%; }
+    .blob-bg { width: 260px; height: 260px; }
+    .profile-img { width: 220px; height: 220px; }
+}
+
+@media (max-width: 768px) {
+    .section-title { font-size: 2.2rem; margin-bottom: 40px; }
+    .about-text { font-size: 1rem; padding: 15px; border-radius: 10px; }
+    .timeline { padding-left: 20px; }
+    [dir="rtl"] .timeline { padding-right: 20px; }
+    .timeline-item::before { left: -30px; width: 16px; height: 16px; }
+    [dir="rtl"] .timeline-item::before { right: -30px; }
+    .common-card { padding: 20px; }
+
+    .common-card .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    .common-card .d-flex.justify-content-between .logo-btn,
+    .common-card .d-flex.justify-content-between span.text-muted {
+        margin-top: 15px;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .fancy-footer { text-align: center; }
+    .fancy-footer .footer-logo { display: inline-block; }
+    .fancy-footer .footer-links { padding: 0; }
+    .fancy-footer .d-flex.gap-3.mt-3 { justify-content: center; }
+    .footer-links a:hover { padding-inline-start: 0; }
+    .footer-links li { margin-bottom: 12px; }
+
+    .contact-form { margin-top: 30px; }
 }
 
 @media (max-width: 576px) {
-    .hero-name { font-size: 2.2rem; }
-    .hero-role { font-size: 1.3rem; }
-    .hero-desc { font-size: 1rem; }
-    .section-title { font-size: 2rem; margin-bottom: 40px; }
+    .hero-name { font-size: 2rem; }
+    .hero-role { font-size: 1.2rem; }
+    .hero-desc { font-size: 0.95rem; }
+    .section-title { font-size: 1.8rem; }
     .btn-glow, .btn-outline-glow {
         width: 100%;
         margin: 5px 0 !important;
+        padding: 10px 20px;
     }
-    .common-card { padding: 20px; }
-    .container { padding-left: 20px; padding-right: 20px; }
+    .skills-tabs .nav-link { padding: 8px 15px; font-size: 0.9rem; }
+    .logo-btn { width: 45px; height: 45px; }
+    .footer-logo img { height: 70px !important; }
+    #scrollTopBtn { bottom: 20px; right: 20px; width: 45px; height: 45px; }
+    [dir="rtl"] #scrollTopBtn { right: auto; left: 20px; }
+    p { font-size: 0.95rem; }
+}
+
+@media (max-width: 400px) {
+    .hero-name { font-size: 1.8rem; }
+    .section-title { font-size: 1.6rem; }
+    .container { padding-left: 15px !important; padding-right: 15px !important; }
+    .blob-bg { width: 220px; height: 220px; }
+    .profile-img { width: 180px; height: 180px; }
 }
 
 /* === Pricing === */
