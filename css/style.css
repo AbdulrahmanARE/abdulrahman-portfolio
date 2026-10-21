@@ -1,3 +1,4 @@
+/* Variables */
 :root {
     --bg-color: #050510;
     --card-bg: #101020;
@@ -6,29 +7,39 @@
     --text-color: #e0e0e0;
 }
 
+/* Base */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+    html, body { overflow-x: clip; }
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    overflow-x: hidden;
     overflow-wrap: break-word;
 }
 
-/* الخط العربي من CSS بدل الـ JS */
 html[lang="ar"] body { font-family: 'Cairo', 'Poppins', sans-serif; }
 
 h1, h2, h3, h4 { color: #fff; font-weight: 700; }
 p { line-height: 1.7; color: #d0d0d0; }
 .text-muted { color: #b0b0b0 !important; }
-/* تباين أحسن للنص الصغير على الخلفية الداكنة */
 .text-secondary { color: #aab0b8 !important; }
 
-/* === Navbar === */
+#contact .d-flex > div { min-width: 0; }
+#contact a.text-secondary { overflow-wrap: anywhere; }
+
+/* Navbar */
 .navbar {
     background-color: rgba(5, 5, 16, 0.85);
     backdrop-filter: blur(15px);
@@ -50,6 +61,11 @@ p { line-height: 1.7; color: #d0d0d0; }
     transform: scale(1.05);
 }
 
+.footer-logo:hover .footer-logo-img {
+    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
+    transform: scale(1.05);
+}
+
 .nav-center-bar {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -61,7 +77,6 @@ p { line-height: 1.7; color: #d0d0d0; }
     margin: 15px auto;
 }
 
-/* مقيّدة بالـ navbar عشان ماتضربش تابات الـ Skills */
 .navbar .nav-link {
     color: #e0e0e0 !important;
     margin: 0 2px;
@@ -104,7 +119,7 @@ p { line-height: 1.7; color: #d0d0d0; }
 .navbar-toggler { border: none; }
 .navbar-toggler:focus { box-shadow: none; }
 
-/* === Hero Section === */
+/* Hero */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -198,9 +213,7 @@ p { line-height: 1.7; color: #d0d0d0; }
     50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
 }
 
-/* === Section Styles === */
-/* اتشال scroll-margin-top: الـ offset بقى من scroll-padding-top بس */
-
+/* Sections */
 .section-padding { padding: 80px 0; }
 .section-title {
     text-align: center;
@@ -233,7 +246,7 @@ p { line-height: 1.7; color: #d0d0d0; }
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 1040; /* تحت المودال */
+    z-index: 1040;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -253,6 +266,7 @@ p { line-height: 1.7; color: #d0d0d0; }
 }
 [dir="rtl"] #scrollTopBtn { right: auto; left: 30px; }
 
+/* Cards */
 .common-card {
     background: var(--card-bg);
     border-radius: 15px;
@@ -267,6 +281,7 @@ p { line-height: 1.7; color: #d0d0d0; }
     box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1);
 }
 
+/* About */
 .about-text {
     font-size: 1.1rem;
     color: #e0e0e0;
@@ -275,7 +290,13 @@ p { line-height: 1.7; color: #d0d0d0; }
     padding: 20px;
     border-radius: 0 10px 10px 0;
 }
+[dir="rtl"] .about-text {
+    border-left: none;
+    border-right: 4px solid var(--secondary-color);
+    border-radius: 10px 0 0 10px;
+}
 
+/* Timeline */
 .timeline {
     position: relative;
     padding-left: 30px;
@@ -317,7 +338,7 @@ p { line-height: 1.7; color: #d0d0d0; }
 .car-text strong { color: var(--primary-color); }
 .car-text { margin-bottom: 5px; font-size: 0.95rem; }
 
-/* === Skills === */
+/* Skills */
 .skill-box {
     display: flex;
     flex-direction: column;
@@ -369,9 +390,11 @@ p { line-height: 1.7; color: #d0d0d0; }
 
 .tool-box { padding: 15px 10px; }
 
+/* Services */
 .service-list li { margin-bottom: 8px; font-size: 0.9rem; color: #bbb; }
 .service-list li i { color: var(--primary-color); margin-inline-end: 8px; font-size: 0.7rem; }
 
+/* Projects */
 .project-img { height: 200px; object-fit: cover; width: 100%; background: #222; }
 .tech-badge {
     font-size: 0.75rem;
@@ -383,15 +406,7 @@ p { line-height: 1.7; color: #d0d0d0; }
     display: inline-block;
 }
 
-/* اتشال كود الـ marquee والـ testimonials والـ thin-divider (مفيش HTML بيستخدمهم) */
-
-.social-circle-small {
-    width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.05);
-    display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: 0.3s;
-    flex-shrink: 0;
-}
-.social-circle-small:hover { background: var(--primary-color); color: #000; }
-
+/* Achievements */
 .achievement-card {
     text-align: center;
     padding: 30px;
@@ -412,6 +427,7 @@ p { line-height: 1.7; color: #d0d0d0; }
     object-fit: contain;
 }
 
+/* Contact */
 .contact-form input, .contact-form textarea {
     background: #16162a;
     border: 1px solid rgba(255,255,255,0.1);
@@ -431,6 +447,14 @@ p { line-height: 1.7; color: #d0d0d0; }
 }
 .social-circle:hover { background: var(--primary-color); color: #000; border-color: var(--primary-color); }
 
+.social-circle-small {
+    width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: 0.3s;
+    flex-shrink: 0;
+}
+.social-circle-small:hover { background: var(--primary-color); color: #000; }
+
+/* Footer */
 .fancy-footer { background-color: #020205; padding-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-logo { text-decoration: none; }
 .footer-links { list-style: none; padding: 0; }
@@ -439,7 +463,7 @@ p { line-height: 1.7; color: #d0d0d0; }
 .footer-links a:hover { color: var(--primary-color); padding-inline-start: 5px; }
 .footer-bottom { background-color: #000; padding: 20px 0; margin-top: 40px; border-top: 1px solid #111; }
 
-/* === Responsive === */
+/* Responsive */
 @media (max-width: 991px) {
     .section-padding { padding: 60px 0; }
     .navbar-collapse {
@@ -500,7 +524,7 @@ p { line-height: 1.7; color: #d0d0d0; }
     .container { padding-left: 20px; padding-right: 20px; }
     .skills-tabs .nav-link { padding: 8px 15px; font-size: 0.9rem; }
     .logo-btn { width: 45px; height: 45px; }
-    .footer-logo img { height: 70px !important; }
+    .footer-logo-img { height: 70px; }
 }
 
 @media (max-width: 400px) {
@@ -509,7 +533,7 @@ p { line-height: 1.7; color: #d0d0d0; }
     .container { padding-left: 15px; padding-right: 15px; }
 }
 
-/* === Pricing === */
+/* Pricing */
 .pricing-card {
     background: var(--card-bg);
     border-radius: 20px;
@@ -558,15 +582,11 @@ p { line-height: 1.7; color: #d0d0d0; }
     right: 0;
 }
 .modal-header .btn-close { filter: invert(1) grayscale(100%) brightness(200%); }
-[data-theme="light"] .modal-header .btn-close { filter: none !important; }
 
-[dir="rtl"] .about-text {
-    border-left: none;
-    border-right: 4px solid var(--secondary-color);
-    border-radius: 10px 0 0 10px;
-}
+/* Logo Variants */
+.logo-for-light { display: none; }
 
-/* === Light theme === */
+/* Light Theme */
 [data-theme="light"] {
     --bg-color: #ebedee;
     --card-bg: #f8f9fa;
@@ -574,6 +594,7 @@ p { line-height: 1.7; color: #d0d0d0; }
     --secondary-color: #023e8a;
     --text-color: #4a4e69;
 }
+[data-theme="light"] .modal-header .btn-close { filter: none !important; }
 [data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3, [data-theme="light"] h4, [data-theme="light"] .hero-desc, [data-theme="light"] .text-white { color: #22223b !important; }
 [data-theme="light"] p, [data-theme="light"] .about-text { color: var(--text-color); }
 [data-theme="light"] .text-muted, [data-theme="light"] .text-secondary { color: #6c757d !important; }
@@ -612,11 +633,12 @@ html[dir="rtl"] body[data-theme="light"] .timeline { border-right-color: rgba(0,
 [data-theme="light"] .skills-tabs .nav-link.active { color: #fff !important; }
 [data-theme="light"] .fas.fa-bars { color: #22223b !important; }
 [data-theme="light"] .lang-toggle-btn { color: #22223b !important; }
-.logo-for-light { display: none; }
 [data-theme="light"] .logo-for-dark { display: none; }
 [data-theme="light"] .logo-for-light { display: inline-block; }
+[data-theme="light"] .navbar-brand:hover .nav-logo,
+[data-theme="light"] .footer-logo:hover .footer-logo-img { filter: drop-shadow(0 0 10px rgba(0, 119, 182, 0.5)); }
 
-/* === Reduced motion === */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; transition: none; }

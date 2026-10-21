@@ -1,11 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    
-    // 0. HELPERS
-    
-
-    // Set to true while developing to log English strings that have no Arabic translation.
+    // Helpers
     const DEBUG_I18N = false;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -37,12 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: Math.max(top, 0), behavior: scrollBehavior });
     }
 
-    
-    // 1. TRANSLATIONS
-    
-
-    // Note: prices ("$30 - $50", ...) are intentionally NOT here.
-    // They are identical in both languages, so no entry is needed.
+    // Translations
     const enToArabic = {
         "Home": "الرئيسية",
         "About": "نبذة",
@@ -52,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Services": "الخدمات",
         "Projects": "المشاريع",
         "Achievements": "الإنجازات",
-        "Testimonials": "التوصيات",
+        "Contact": "تواصل",
         "Contact Me": "تواصل معي",
         "Hello, I'm": "مرحبًا، أنا",
         "Abdulrahman Ramadan ARE": "عبدالرحمن رمضان",
@@ -64,11 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
         "I enjoy building practical software projects, solving problems, and continuously improving my Flutter and Dart skills.": "أستمتع ببناء المشاريع البرمجية العملية وحل المشكلات وتطوير مهاراتي باستمرار في Flutter وDart.",
         "Bachelor of Computer Science": "بكالوريوس علوم الحاسب",
         "Higher Institute for Computer Science and Information Systems": "المعهد العالي لعلوم الحاسب ونظم المعلومات",
-        "Specialization:": "التخصص:",
-        "Computer Science": "علوم الحاسب",
-        "Coursework:": "المقررات الدراسية:",
-        "Algorithms, Software Engineering, Data Structures, OOP.": "الخوارزميات، هندسة البرمجيات، هياكل البيانات، والبرمجة كائنية التوجه.",
-        "Certificates": "الشهادات",
+        "BACHELOR DEGREE · IN PROGRESS": "درجة البكالوريوس · قيد الدراسة",
+        "Culture and Science City — Giza, Egypt": "مدينة الثقافة والعلوم — الجيزة، مصر",
+        "Expected: 2028": "التخرج المتوقع: 2028",
+        "GPA: 3.10": "المعدل التراكمي: 3.10",
         "My Skills": "مهاراتي",
         "Technical": "المهارات التقنية",
         "Tools I Use": "الأدوات التي أستخدمها",
@@ -79,18 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
         "Integrating RESTful services for dynamic data flows.": "التكامل مع واجهات REST API للتعامل مع البيانات.",
         "Local data storage for offline experiences.": "تخزين البيانات محليًا لاستخدامها دون اتصال بالإنترنت.",
         "Crafting interfaces that adapt to all device screens.": "تصميم واجهات تتناسب مع أحجام الشاشات المختلفة.",
-        "Problem Solving": "حل المشكلات",
-        "Leadership": "القيادة",
-        "Self-Learning": "التعلم الذاتي",
-        "Teamwork": "العمل الجماعي",
-        "Time Management": "إدارة الوقت",
-        "Presentation": "مهارات العرض والتقديم",
         "Arabic": "العربية",
         "Native": "اللغة الأم",
         "English": "الإنجليزية",
         "Good": "جيد",
         "Cross Platform App Development": "تطوير التطبيقات متعددة المنصات",
         "Digital Egypt Pioneers Initiative (DEPI) - Hybrid": "مبادرة رواد مصر الرقمية (DEPI) - تدريب هجين",
+        "Jul 2026 - Present": "يوليو 2026 - الآن",
         "Challenge:": "التحدي:",
         "Mastering the full lifecycle of cross-platform mobile application development and advanced state management techniques.": "تطوير المهارات اللازمة لمراحل بناء تطبيقات الهواتف متعددة المنصات والتعامل مع تقنيات إدارة الحالة.",
         "Action:": "ما قمت به:",
@@ -113,9 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
         "Firebase Auth & Firestore": "مصادقة Firebase وقاعدة بيانات Firestore",
         "RESTful API Integration": "التكامل مع REST API",
         "Local Storage (SharedPrefs)": "التخزين المحلي باستخدام SharedPreferences",
+        "Explore GitHub": "استكشف حسابي على GitHub",
         "Featured Projects": "أبرز المشاريع",
-        "View on GitHub": "عرض المشروع على GitHub",
+        "ATM System App": "تطبيق نظام صراف آلي",
+        "Jan 12 - Jan 15, 2025": "12 - 15 يناير 2025",
         "Console-based ATM System in C++ with login authentication, transactions, and file-based account management.": "نظام صراف آلي يعمل من خلال سطر الأوامر باستخدام C++، مع تسجيل الدخول وتنفيذ المعاملات وإدارة الحسابات عبر الملفات.",
+        "File Storage": "تخزين الملفات",
+        "Offline": "دون اتصال بالإنترنت",
+        "View on GitHub": "عرض المشروع على GitHub",
         "DEPI Selection": "القبول في DEPI",
         "Digital Egypt Pioneers Initiative": "مبادرة رواد مصر الرقمية",
         "Selected to join the prestigious MCIT initiative, undergoing intensive training in modern cross-platform development techniques.": "تم اختياري للانضمام إلى مبادرة رواد مصر الرقمية التابعة لوزارة الاتصالات، والمشاركة في تدريب على تطوير التطبيقات متعددة المنصات.",
@@ -123,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         "GitHub Open Source": "مشاريع متاحة على GitHub",
         "Successfully developed and deployed robust, well-documented source codes available for review on my GitHub Profile.": "تطوير مشاريع برمجية موثقة يمكن الاطلاع على كودها المصدري من خلال حسابي على GitHub.",
         "Responsive UI": "واجهات متجاوبة",
-        "Offline": "دون اتصال بالإنترنت",
         "Get In Touch": "تواصل معي",
         "Let's Talk About Your Project": "لنتحدث عن مشروعك",
         "Feel free to reach out for collaborations, freelance work, or just to say hi! I am always open to discussing new projects.": "يمكنك التواصل معي للتعاون أو العمل الحر أو مناقشة أفكار ومشاريع برمجية جديدة.",
@@ -169,11 +158,13 @@ document.addEventListener('DOMContentLoaded', () => {
         "Dedicated Account Manager": "مسؤول مخصص لمتابعة المشروع",
         "Long-term Maintenance": "صيانة طويلة الأجل",
         "Tailored to Your Needs": "مصممة لتناسب احتياجاتك",
-        "View Pricing Plans": "عرض خطط الأسعار"
+        "View Pricing Plans": "عرض خطط الأسعار",
+        "Go to top": "العودة للأعلى",
+        "Toggle Theme": "تبديل الوضع",
+        "Toggle Language": "تبديل اللغة",
+        "Visit Website": "زيارة الموقع"
     };
 
-    // Collapse any run of whitespace (including line breaks in the HTML)
-    // so multi-line text still matches its dictionary key.
     const normalize = text => text.replace(/\s+/g, ' ').trim();
 
     const dictionary = new Map(
@@ -184,8 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'script, style, noscript, textarea, input, select, option, code, pre, [data-no-translate]';
     const TRANSLATABLE_ATTRS = ['placeholder', 'title', 'alt'];
 
-    const originalText = new WeakMap();   // Text node  -> original string
-    const originalAttrs = new WeakMap();  // Element    -> { attr: original value }
+    const originalText = new WeakMap();
+    const originalAttrs = new WeakMap();
 
     let currentLang = 'en';
 
@@ -216,8 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const translation = isArabic ? dictionary.get(key) : undefined;
 
             if (translation !== undefined) {
-                // Function replacer: "$&", "$$" etc. in translations stay literal.
-                // Keeps the node's original leading/trailing whitespace.
                 node.nodeValue = original.replace(
                     /^(\s*)[\s\S]*?(\s*)$/,
                     (_, lead, trail) => lead + translation + trail
@@ -267,9 +256,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Language
     function applyLanguage(lang, savePreference = true) {
         const isArabic = lang === 'ar';
         currentLang = isArabic ? 'ar' : 'en';
+
+        const bsLtr = document.getElementById('bs-ltr');
+        const bsRtl = document.getElementById('bs-rtl');
+
+        if (bsLtr && bsRtl) {
+            bsLtr.media = isArabic ? 'not all' : 'all';
+            bsRtl.media = isArabic ? 'all' : 'not all';
+        }
 
         translateTextNodes(isArabic);
         translateAttributes(isArabic);
@@ -277,10 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const root = document.documentElement;
         root.lang = currentLang;
         root.dir = isArabic ? 'rtl' : 'ltr';
-
-        document.body.style.fontFamily = isArabic
-            ? "'Cairo', 'Poppins', sans-serif"
-            : "'Poppins', sans-serif";
 
         const langToggleBtn = document.getElementById('lang-toggle');
 
@@ -307,10 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     applyLanguage(storage.get('lang', 'en') === 'ar' ? 'ar' : 'en', false);
 
-    
-    // 2. DARK / LIGHT THEME
-    
-
+    // Theme
     const themeToggleBtn = document.getElementById('theme-toggle');
 
     function applyTheme(theme, savePreference = true) {
@@ -351,14 +342,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     applyTheme(storage.get('theme', 'dark') === 'light' ? 'light' : 'dark', false);
 
-    
-    // 3. SCROLL REVEAL ANIMATIONS
-    
-
+    // Scroll Reveal
     const revealElements = document.querySelectorAll('.reveal');
 
     if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-        // No animation needed (or no support): just show everything.
         revealElements.forEach(element => element.classList.add('active'));
     } else {
         const revealObserver = new IntersectionObserver(
@@ -371,8 +358,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             },
             {
-                // threshold 0 + rootMargin: works even for very tall elements,
-                // unlike a ratio threshold which tall elements may never reach.
                 threshold: 0,
                 rootMargin: '0px 0px -10% 0px'
             }
@@ -381,10 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(element => revealObserver.observe(element));
     }
 
-    
-    // 4. NAVIGATION HIGHLIGHT AND BACK TO TOP
-    
-
+    // Navigation and Back to Top
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
@@ -407,7 +389,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentSection = '';
 
         if (atPageBottom && sections.length > 0) {
-            // Short last sections can never reach the activation line.
             currentSection = sections[sections.length - 1].id;
         } else {
             const activationLine = getNavOffset() + 40;
@@ -452,10 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateScrollUI();
 
-    
-    // 5. PRICING PLAN BUTTONS
-    
-
+    // Pricing Plan Buttons
     function scrollToContact() {
         const contactSection = document.getElementById('contact');
 
@@ -469,8 +447,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const modalElement = button.closest('.modal');
 
             if (modalElement && modalElement.classList.contains('show')) {
-                // Wait until Bootstrap has fully closed the modal
-                // (it locks body scroll while open).
                 let done = false;
 
                 const go = () => {
@@ -483,15 +459,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
 
                 modalElement.addEventListener('hidden.bs.modal', go, { once: true });
-                window.setTimeout(go, 800); // safety net
+                window.setTimeout(go, 800);
             } else {
                 scrollToContact();
             }
         });
     });
 
-    // 6. MOBILE NAVBAR
-
+    // Mobile Navbar
     const navbarCollapse = document.getElementById('navbarNav');
 
     if (navbarCollapse && typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
