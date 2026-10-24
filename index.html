@@ -56,11 +56,24 @@
             <img src="assets/icons/ARE icon-dark.png" alt="ARE Logo"
                  class="logo-for-light nav-logo">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        <div class="d-flex align-items-center gap-2 nav-actions order-lg-last ms-auto ms-lg-3">
+            <button class="btn btn-sm btn-outline-secondary border-0 rounded-circle theme-toggle-btn d-flex align-items-center justify-content-center"
+                    id="theme-toggle" title="Toggle Theme" aria-label="Toggle Theme"
+                    type="button">
+                <i class="fas fa-sun fs-5 text-warning" style="pointer-events: none;"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-secondary border-0 fw-bold rounded lang-toggle-btn text-white d-flex align-items-center justify-content-center"
+                    id="lang-toggle" title="Toggle Language" aria-label="Toggle Language"
+                    type="button">AR
+            </button>
+        </div>
+
+        <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
             <span class="fas fa-bars text-white fs-3"></span>
         </button>
+
         <div class="collapse navbar-collapse align-items-center" id="navbarNav">
             <ul class="navbar-nav nav-center-bar mx-auto mt-3 mt-lg-0 mb-3 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
@@ -72,18 +85,7 @@
                 <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                 <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
             </ul>
-            <div class="d-flex align-items-center mt-3 mt-lg-0 gap-3 justify-content-center">
-                <button class="btn btn-sm btn-outline-secondary border-0 rounded-circle theme-toggle-btn d-flex align-items-center justify-content-center"
-                        id="theme-toggle" title="Toggle Theme" aria-label="Toggle Theme"
-                        style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); z-index: 1050; position: relative;"
-                        type="button">
-                    <i class="fas fa-sun fs-5 text-warning" style="pointer-events: none;"></i>
-                </button>
-                <button class="btn btn-sm btn-outline-secondary border-0 fw-bold rounded lang-toggle-btn text-white d-flex align-items-center justify-content-center"
-                        id="lang-toggle" title="Toggle Language" aria-label="Toggle Language"
-                        style="height: 40px; min-width: 45px; background: rgba(255,255,255,0.05); z-index: 1050; position: relative;"
-                        type="button">AR
-                </button>
+            <div class="d-flex align-items-center mt-3 mt-lg-0 justify-content-center">
                 <a href="#contact" class="nav-btn-contact text-decoration-none">Contact Me</a>
             </div>
         </div>

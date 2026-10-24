@@ -110,14 +110,40 @@ p { line-height: 1.7; color: #d0d0d0; }
     white-space: nowrap;
 }
 
-.nav-btn-contact:hover {
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
-    transform: translateY(-2px);
-    color: #fff !important;
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1050;
 }
 
-.navbar-toggler { border: none; }
-.navbar-toggler:focus { box-shadow: none; }
+.theme-toggle-btn, .lang-toggle-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    border: none !important;
+}
+
+.lang-toggle-btn {
+    min-width: 45px;
+    font-size: 0.85rem;
+}
+
+.theme-toggle-btn:hover, .lang-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: scale(1.05);
+}
+
+.navbar-toggler {
+    padding: 5px;
+    flex-shrink: 0;
+}
 
 /* Hero */
 .hero {
@@ -512,6 +538,11 @@ p { line-height: 1.7; color: #d0d0d0; }
 }
 
 @media (max-width: 576px) {
+    .nav-logo { height: 45px; }
+    .nav-actions { gap: 5px; }
+    .theme-toggle-btn, .lang-toggle-btn { width: 35px; height: 35px; }
+    .lang-toggle-btn { min-width: 40px; font-size: 0.8rem; }
+    .navbar-toggler .fas { font-size: 1.5rem !important; }
     .hero-name { font-size: 2rem; }
     .hero-role { font-size: 1.2rem; }
     .hero-desc { font-size: 0.95rem; }
@@ -633,6 +664,14 @@ html[dir="rtl"] body[data-theme="light"] .timeline { border-right-color: rgba(0,
 [data-theme="light"] .skills-tabs .nav-link.active { color: #fff !important; }
 [data-theme="light"] .fas.fa-bars { color: #22223b !important; }
 [data-theme="light"] .lang-toggle-btn { color: #22223b !important; }
+[data-theme="light"] .theme-toggle-btn,
+[data-theme="light"] .lang-toggle-btn {
+    background: rgba(0, 0, 0, 0.05) !important;
+}
+[data-theme="light"] .theme-toggle-btn:hover,
+[data-theme="light"] .lang-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.1) !important;
+}
 [data-theme="light"] .logo-for-dark { display: none; }
 [data-theme="light"] .logo-for-light { display: inline-block; }
 [data-theme="light"] .navbar-brand:hover .nav-logo,
